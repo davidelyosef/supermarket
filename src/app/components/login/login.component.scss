@@ -1,0 +1,122 @@
+div {
+    margin: 10px;
+    text-align: center;
+    div {
+        text-align: center;
+        width: 420px;
+        display: inline-block;
+        border: 2px solid gray;
+        padding: 10px;
+        overflow: auto;
+        height: 500px;
+        box-sizing: border-box;
+        margin-top: 20px;
+    }
+    label {
+        display: block;
+    }
+    #loginDiv {
+        input {
+            padding: 5px;
+            width: 160px;
+            border: none;
+            border-bottom: 1px solid rgb(52, 56, 255);
+            outline: none;
+            height: 35px;
+            font-size: 16px;
+        }
+        button, a {
+            width: 160px;
+        }
+        img {
+            height: 40px;
+            border: 1px solid rgb(0, 2, 114);
+            border-radius: 5px;
+            margin-bottom: 7px;
+        }
+    }
+    .info {
+        img {
+            width: 350px;
+        }
+    }
+}
+.aboutForm img {
+    width: 100%;
+}
+div > .contact-form {
+    width: 400px;
+    height: 480px;
+    padding: 80px 40px;
+    box-sizing: border-box;
+    background: rgba(0,0,0,.5);
+    .avatar {
+        position: absolute;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        top: 80px;
+    }
+    h2 {
+        margin: 0;
+        padding: 0 0 20px;
+        color: #fff;
+        text-align: center;
+        text-transform: uppercase;
+    }
+    p {
+        margin: 0;
+        padding: 0;
+        font-weight: bold;
+        color: #fff;
+    }
+    input[type="text"] {
+        border: none;
+        border-bottom: 10px solid rgb(12, 3, 3);
+        background: none;
+        outline: none;
+        height: 40px;
+        color: #fff;
+        font-size: 16px;
+    }
+    input[type="submit"] {
+        height: 30px;
+        color: #fff;
+        font-size: 15px;
+        background: red;
+        cursor: pointer;
+        border-radius: 25px;
+        border: none;
+        outline: none;
+        margin-top: 15%;
+    }
+    a {
+        color: #fff;
+        font-size: 14px;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+}
+
+@media only screen and (max-width: 460px) {
+    div {
+        div {
+            width: auto;
+            height: auto;
+            border: none;
+            padding: 0;
+            overflow: none;
+            margin: auto;
+        }
+    }
+}
+@media only screen and (max-width: 370px) {
+    div {
+        div:nth-of-type(3) {
+            img {
+                width: 90%;
+            }
+        }
+    }
+}

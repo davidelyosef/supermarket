@@ -1,0 +1,36 @@
+<div>
+    <nav>
+        <!-- Site name + logo -->
+        <span id="brand">
+            <div>
+                &nbsp;
+                <img src="./assets/images/logo-cart.png" class="bounceInLeft animated">
+                <i class="fadeInUp animated"><span>S</span>upermarket</i>
+                &nbsp;&nbsp;&nbsp;
+            </div>
+            <div>
+                <img src="./assets/images/logo-cart.png">&nbsp;
+            </div>
+
+        </span>
+
+        <!-- menu navigator -->
+        <div id="toggle" (click)="activateMenu()">
+            <div class="span" id="one"></div>
+            <div class="span" id="two"></div>
+            <div class="span" id="three"></div>
+        </div>
+
+        <!-- menu navigator content -->
+        <div id="resize">
+            <ul id="menu">
+                <li><a routerLink="/login">Login</a></li>
+                <li><a routerLink="/products">Products</a></li>
+                <li><a routerLink="/about">About</a></li>
+                <li><a routerLink="/my-orders">My orders</a></li>
+            </ul>
+
+        </div>
+    </nav>
+
+</div>

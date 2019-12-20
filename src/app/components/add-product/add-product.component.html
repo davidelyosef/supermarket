@@ -1,0 +1,24 @@
+<div>
+    <button class="btn btn-danger" (click)="backToShop()">
+        <i class="glyphicon glyphicon-arrow-left"></i> Back to shop
+    </button>
+    <h3><i><u>Add A Product</u></i></h3>
+
+    <label>Image: </label>
+    <input type="file" accept="image/*" name="productImage" (change)="setImage($event)"><br />
+
+    <label>Name: </label>
+    <input type="text" [(ngModel)]="newProduct.name"><br />
+
+    <label>Category: </label>
+    <select [(ngModel)]="newProduct.category">
+        <option disabled selected>Select a category...</option>
+        <option *ngFor="let c of categories" [value]="c._id">{{c.category}}</option>
+    </select><br />
+
+    <label>Price in Shekels: </label>
+    <input type="number" [(ngModel)]="newProduct.price" min="1"><br /><br />
+
+    <button class="btn btn-primary" (click)="addProduct()" [disabled]="!addButton()">ADD</button><br /><br />
+
+</div>

@@ -1,0 +1,46 @@
+<select (change)="getOrdersByUser($event)" *ngIf="isAdmin">
+        <option disabled >Search a user</option>
+        <option *ngFor="let user of users" [value]="user._id">{{user.private_name}} {{user.last_name}}</option>
+    </select><br />
+    <div *ngFor="let o of orders" ngClass="orders">
+        <table>
+            <tr>
+                <th>City</th>
+                <td>{{o.delivery_city}}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{o.delivery_date}}</td>
+            </tr>
+            <tr>
+                <th>House</th>
+                <td>{{o.delivery_house}}</td>
+            </tr>
+            <tr>
+                <th>Street</th>
+                <td>{{o.delivery_street}}</td>
+            </tr>
+            <tr>
+                <th>Price</th>
+                <td>{{o.final_price}}</td>
+            </tr>
+            <tr>
+                <th>CC_number</th>
+                <td>{{o.cc_number}}</td>
+            </tr>
+            <tr>
+                <th>User mail</th>
+                <td>{{o.user.email}}</td>
+            </tr>
+            <tr>
+                <th>User phone</th>
+                <td>0{{o.user.phone}}</td>
+            </tr>
+        </table><br />
+
+        <div ngClass="cartItems">
+            <div *ngFor="let p of o.products">
+                {{p.product.name}} X {{p.amount}}
+            </div>
+        </div>
+    </div>

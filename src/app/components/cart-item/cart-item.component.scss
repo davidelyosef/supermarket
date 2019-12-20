@@ -1,0 +1,36 @@
+div:hover {
+    opacity: 1;
+}
+div {
+    margin: 5px;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+    opacity: 0.8;
+    position: relative;
+}
+section {
+    text-align: left;
+}
+img {
+    margin: 5px;
+    float: right;
+    width: 120px;
+    height: 80px;
+    border-left: 1px solid gray;
+}
+button {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    background: transparent;
+    border: none;
+}
+button:hover {
+    text-shadow: 4px 2px 6px rgba(255, 255, 255, 1);
+    box-shadow: 4px 6px 40px -10px rgba(0,0,0,0.57);
+    box-shadow: 4px 6px 40px -10px rgba(0,0,0,0.57);
+    transform: scale(1.2);
+}
+.none {
+    display: none;
+}

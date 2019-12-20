@@ -1,0 +1,40 @@
+* {
+    text-align: center;
+}
+div {
+    text-align: center;
+    float: unset;
+    border: 2px solid gray;
+    border-radius: 30px;
+    margin: auto;
+    margin-top: 10px;
+    width: 600px;
+    position: relative;
+    label {
+        display: block;
+    }
+    input[type="file"] {
+        margin: auto;
+    }
+    button:nth-of-type(1) {
+        position: absolute;
+        left: 10px;
+        top: 10px;
+    }
+    input, select, button:nth-of-type(2) {
+        width: 220px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    div {
+        border: none;
+        width: auto;
+        button:nth-of-type(1) {
+            position: relative;
+        }
+        input, select, button:nth-of-type(2) {
+            width: 80%;
+        }
+    }
+}

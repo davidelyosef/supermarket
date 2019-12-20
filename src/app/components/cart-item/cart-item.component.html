@@ -1,0 +1,15 @@
+<div>
+
+    <ng-container *ngIf="displayX">
+        <button ngClass="delete" (click)="deleteCartItem()">&#x274C;</button>
+    </ng-container>
+
+    <img src={{imgUrl}}>
+
+    <section *ngIf="cartItem">
+        <p>{{ cartItem.product.name }}</p>
+        <p>Quantity: {{ cartItem.amount }}</p>
+        <p>Price: ₪{{ cartItem.product.price *  cartItem.amount | number:'1.0-2' }}</p>
+    </section>
+
+</div>

@@ -1,0 +1,47 @@
+<div>
+
+    <app-login-modal [header]="username" [alert]="alertStyle" [message]="message" [start]="startShopping"
+        [continue]="continueShopping" [submit]="submit"></app-login-modal>
+
+    <div id="loginDiv">
+        <label><i>Email: </i></label>
+        <img src="./assets/images/mail.png">
+        <input type="email" class="glyphicon" (change)="getEmail($event)" placeholder="&#xe008;"><br />
+
+        <label><i>Password: </i></label>
+        <img src="./assets/images/key.png">
+        <input type="password" class="glyphicon" (change)="getPassword($event)" placeholder="&#xe033;">
+        <br /><br />
+
+        <button ngClass="btn btn-primary" (click)="login()" data-toggle="modal" data-target="#demoModal" [disabled]='loginDisable'>
+            Login
+        </button>
+        <p>Don't have an acount?</p>
+        <a type="button" class="btn btn-info" routerLink="/register">Register</a>
+    </div>
+
+    <div ngClass="aboutForm">
+
+        <h3><u>Recommendations:</u></h3>
+
+        <app-recommendations imgUrl="./assets/images/Moishe_Oofnik.png" name="Moishe Ufnik"
+            text="I registered, selected few things, order them and the products have come very quickly.">
+        </app-recommendations><br />
+
+        <app-recommendations imgUrl="./assets/images/kipi-ben-kipod.jpg" name="Kipi Ben Kipod"
+            text="This store has great selection and many categories, I'm highly recomment using this website.">
+        </app-recommendations><br />
+
+        <app-recommendations imgUrl="./assets/images/cookie-monster.jpg" name="Ugi Fletzet"
+            text="Nice products, great selection and everything just great exept one thing... there is no cookies!!">
+        </app-recommendations><br />
+
+    </div>
+
+    <div *ngIf="allProducts && allOrders" ngClass="info">
+        <p>Number of products available in that website: {{ allProducts.length }}</p>
+        <p>Number of all orders made in that website: {{ allOrders.length }}</p>
+        <img src="./assets/images/orders.png">
+    </div>
+
+</div>

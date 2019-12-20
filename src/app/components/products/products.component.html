@@ -1,0 +1,47 @@
+<div *ngIf="products && connectedUser" ngClass="products">
+    <!-- my cart -->
+    <aside [class]="displayCart">
+        <app-my-cart [user]="connectedUser"></app-my-cart>
+    </aside>
+    <main [class]="mainClass">
+
+        <!-- NavBar for the categories -->
+        <div ngClass="categories">
+            <button (click)="getProducts(milkAndEggs_id)">Milk & Eggs</button> |
+            <button (click)="getProducts(vegtablesAndFruits_id)">Vegtables & Fruits</button> |
+            <button (click)="getProducts(meatAndFish_id)">Meat & Fish</button> |
+            <button (click)="getProducts(alcohol_id)">Alcohol</button> |
+            <button (click)="getProducts(softDrinks_id)">Soft Drinks</button>
+        </div><br />
+
+        <!-- Display this if I'm a regular user -->
+        <div *ngIf="!isAdmin">
+            <div>
+                <input (change)="onSearch()" type="text"  placeholder="Search Here..." [(ngModel)]="searchInput">
+                <button ngClass="searchBtn">
+                    <i class="glyphicon glyphicon-search"></i>&nbsp;
+                </button><br />
+            </div>
+
+            <div ngClass="categoryProducts">
+                <app-category-products 
+                    *ngFor="let p of products" [product]="p" [user]="connectedUser">
+                </app-category-products>
+            </div>
+        </div>
+
+        <!-- Display this if I'm the admin -->
+        <div *ngIf="isAdmin">
+            <button class="btn btn-danger" (click)="logout()">LogOut</button>&nbsp;
+            <button class="btn btn-primary" (click)="addPage()">Add Product</button>
+            <br /><br />
+
+            <app-category-products-admin *ngFor="let p of products" [product]="p" [user]="connectedUser"
+                [category]="category">
+            </app-category-products-admin>
+        </div>
+    </main>
+</div>
+
+<!-- Display this if I'm not connected -->
+<app-not-connected *ngIf="!connectedUser"></app-not-connected>

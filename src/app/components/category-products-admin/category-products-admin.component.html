@@ -1,0 +1,7 @@
+<div>
+    <img src='http://localhost:8080/assets/products/{{product.img_name}}'/><br/>
+    <input type="text" [value]="name" [(ngModel)]="product.name"><br/>
+    <input type="number" [value]="price" [(ngModel)]="product.price" min="1"><br/>
+    <button class="btn btn-primary" (click)="update()">Update</button>
+    <button class="btn btn-danger" (click)="delete()">Delete</button>
+</div>

@@ -1,0 +1,62 @@
+<!-- Display this modal when I click on order -->
+<app-login-modal *ngIf="order && header && message" alert={{alertStyle}} submit={{submit}} message={{message}}
+    header={{header}}></app-login-modal>
+
+<section *ngIf="order && user; else loading">
+
+    <!-- order input's -->
+    <div id="order">
+        <h3>Order</h3>
+        <i>Shipping Details</i>
+
+        <div class="form-group">
+            <label>City: </label>
+            <input type="text" class="form-control" [value]="user.city" [(ngModel)]="order.delivery_city" required />
+        </div>
+
+        <div class="form-group">
+            <label>Street: </label>
+            <input type="text" class="form-control" [value]="user.street" [(ngModel)]="order.delivery_street"
+                required />
+        </div>
+
+        <div class="form-group">
+            <label>House Number: </label>
+            <input type="number" class="form-control" [value]="user.house_number" [(ngModel)]="order.delivery_house"
+                required />
+        </div>
+
+        <div class="form-group">
+            <label>Shipping Date: </label>
+            <input type="date" class="form-control" [min]="date()" [(ngModel)]="order.delivery_date" required />
+        </div>
+
+        <div>
+            <i>Payments</i>
+            <label>Credit Card: </label>
+            <input type="number" class="form-control" [(ngModel)]="order.cc_number" required />
+        </div><br />
+
+        <button class="btn btn-primary" (click)="orderAction()" data-toggle="modal"
+            data-target="#demoModal">Order</button>
+    </div>
+
+    <!-- contain the products in my cart -->
+    <div id="selectedProducts" *ngIf="order && items">
+        <button class="btn btn-danger" (click)="backToShop()">
+            <i class="glyphicon glyphicon-arrow-left"></i> Back to shop
+        </button>
+        <h3>{{user.private_name}} Cart</h3>
+        <i>Total Price: ₪{{ order.final_price | number:'1.0-9'}}</i>
+        <div class="items">
+            <app-cart-item *ngFor="let c of items" [cartItem]="c" [displayX]="false"></app-cart-item>
+        </div>
+    </div>
+</section>
+
+<ng-template #loading>
+    <div class="load">
+        <i>Loading...</i><br />
+        <img src="../../../assets/images/Spinner.gif">
+    </div>
+</ng-template>

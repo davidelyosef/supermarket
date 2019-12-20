@@ -1,0 +1,14 @@
+<div>
+    <span>Hello {{user.private_name}} </span>
+    <button class="btn btn-danger" (click)="logout()">Logout</button><br/>
+    <u>My Cart</u>
+
+    <!-- Display all cart items of that cart -->
+    <section *ngIf="cartItems">
+        <app-cart-item *ngFor="let c of cartItems" [cartItem]="c" [displayX]="true"></app-cart-item>
+    </section>
+
+    <button class="small" (click)="deleteAllCartItems()"><i class="glyphicon glyphicon-trash"></i>Delete All</button><br/><br/>
+    <span>Total Price: ₪{{overallPrice | number:'1.0-2'}}</span>
+    <button class="btn btn-danger" ngClass="order" (click)="orderAction()" [disabled]="this.redux.getState().orderBtn">Order</button>
+</div>

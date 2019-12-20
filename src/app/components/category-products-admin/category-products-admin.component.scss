@@ -1,0 +1,19 @@
+div {
+    position: relative;
+    border: 1px solid gray;
+    display: inline-block;
+    padding: 5px;
+    width: 260px;
+    height: 300px;
+    text-align: center;
+    img {
+        width: 170px;
+        height: 150px;
+    }
+    i {
+        display: inline-block;
+    }
+    img, input, button {
+        margin: 5px;
+    }
+}

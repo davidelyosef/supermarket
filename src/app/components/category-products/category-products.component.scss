@@ -1,0 +1,50 @@
+div {
+    position: relative;
+    border: 1px solid gray;
+    display: inline-block;
+    padding: 5px;
+    width: 250px;
+    height: 290px;
+    text-align: center;
+    img {
+        width: 90%;
+        height: 160px;
+    }
+    i {
+        display: block;
+    }
+    input {
+        width: 19%;
+    }
+    .quantity {
+        display: block;
+        button {
+           font-size: 20px; 
+        }
+    }
+    .addToCart {
+        margin-top: 5px;
+        width: 90%;
+    }
+    .form-control {
+        display: inline-block;
+    }
+    .btn-warning:hover {
+        color: #FFF;
+        background: rgb(240, 173, 78, 0.75);
+        border: 2px solid rgba(240, 173, 78, 0.75);
+    }
+    .btn-warning {
+        font-family: Raleway-SemiBold;
+        color: rgba(240, 173, 78, 0.75);
+        letter-spacing: 1px;
+        line-height: 15px;
+        border: 2px solid rgba(240, 173, 78, 0.75);
+        border-radius: 40px;
+        background: transparent;
+        transition: all 0.3s ease 0s;
+    }
+    input[type=number]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+    }
+}

@@ -1,0 +1,13 @@
+<div *ngIf="product.category.category">
+    <img src='http://localhost:8080/assets/products/{{product.img_name}}' />
+    <i>{{product.name}}</i>
+    <i>Price: ₪{{product.price}}</i>
+
+    <section ngClass="quantity">
+        <button class="btn btn-warning" (click)="decreaseQuantity()">&minus;</button>&nbsp;
+        <input type="number" placeholder="amount" (change)="calcValue($event)" [value]="quantity" min=1>
+        &nbsp;<button class="btn btn-warning" (click)="increaseQuantity()">+</button>
+    </section>
+
+    <button ngClass="addToCart" class="btn btn-danger" (click)="addToCart()">Add To Cart</button>
+</div>

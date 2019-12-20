@@ -1,0 +1,22 @@
+/* Global design */
+html, body {
+    margin: 0;
+}
+.deafultMain {
+    grid-column: span 9;
+    text-align: center;
+    overflow: auto;
+}
+.adminMain {
+    grid-column: span 12;
+    text-align: center;
+}
+.none {
+    display: none;
+}
+.block {
+    border: 1px solid black;
+    grid-column: span 3;
+    background-color: rgb(253, 253, 109);
+    overflow: hidden;
+}

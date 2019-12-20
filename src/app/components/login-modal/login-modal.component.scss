@@ -1,0 +1,16 @@
+#demoModal {
+    position: absolute;
+}
+.modal {
+    position: relative;
+    .close {
+        font-size: 45px;
+        position: absolute;
+        top: 5px;
+        right: 7px;
+    }
+    .modal-body {
+        overflow: auto;
+    }
+
+}
