@@ -5,6 +5,10 @@
     <div *ngFor="let o of orders" ngClass="orders">
         <table>
             <tr>
+                <th>Full Name</th>
+                <td>{{o.user.private_name}} {{o.user.last_name}}</td>
+            </tr>
+            <tr>
                 <th>City</th>
                 <td>{{o.delivery_city}}</td>
             </tr>

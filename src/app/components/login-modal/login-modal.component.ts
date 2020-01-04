@@ -21,4 +21,5 @@ export class LoginModalComponent {
     this.router.navigate(["/products"]);
   }
 
+  
 }

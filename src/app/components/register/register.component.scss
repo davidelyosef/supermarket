@@ -8,14 +8,22 @@ form {
     }
     div {
         text-align: center;
+        margin: 5px;
         input {
             width: 70%;
         }
-        div {
-            div {
-                width: 70%;
-            }
+        .alert {
+            width: 70%;
+            margin: auto;
         }
+    }
+    .btn-info {
+        background-color: transparent;
+        color: black;
+    }
+    .btn-info:hover {
+        background-color: rgb(60, 60, 255);
+        color: white;
     }
 
 }

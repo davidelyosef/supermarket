@@ -17,6 +17,7 @@ import { Router } from '@angular/router';
 export class ProductsComponent implements OnInit {
 
   public products: Product[];
+  public products2: Product[];
   public connectedUser: User;
   public categories: Category[];
   public category: Category;
@@ -31,7 +32,6 @@ export class ProductsComponent implements OnInit {
   public meatAndFish_id: string = "5dbbf2b8192c0a588d4d57a8";
   public alcohol_id: string = "5dbbf2cf192c0a588d4d57b1";
   public softDrinks_id: string = "5dbc7f2a192c0a588d4dc0ec";
-  public ourCategory: string = "5dbbf282192c0a588d4d5791";
 
   public constructor(private title: Title, private productsService: ProductsService, private redux: NgRedux<AppState>,
     private categoriesService: CategoriesService, private router: Router) { }
@@ -50,8 +50,10 @@ export class ProductsComponent implements OnInit {
       });
 
       // Gettin all the products from the service
-      this.productsService.getProductsFromOneCategory(this.milkAndEggs_id).subscribe(products =>
-        this.products = products,
+      this.productsService.getProductsFromOneCategory(this.milkAndEggs_id).subscribe(products => {
+        this.products = products;
+        this.products2 = products;
+      },
         err => {
           console.log("Error: " + err.message);
         });
@@ -66,25 +68,24 @@ export class ProductsComponent implements OnInit {
 
   public onSearch(): void {
     // search and find the products that contain the input text
-    this.productsService.getProductsFromOneCategory(this.category._id).subscribe(products => {
-      this.products = products;
-      let newProducts = [];
-      this.products.filter(p => {
-        this.searchInput = this.searchInput.toLowerCase();
-        p.name = p.name.toLowerCase();
-        p.name.indexOf(this.searchInput) > -1
-        if (p.name.indexOf(this.searchInput) > -1) {
-          newProducts.push(p);
-        }
-      });
-      newProducts.length < 1 ? this.getProducts(this.ourCategory) : this.products = newProducts;
+    this.products = this.products2;
+    let newProducts = [];
+    this.products.filter(p => {
+      this.searchInput = this.searchInput.toLowerCase();
+      p.name = p.name.toLowerCase();
+      p.name.indexOf(this.searchInput) > -1
+      if (p.name.indexOf(this.searchInput) > -1) {
+        newProducts.push(p);
+      }
     });
+    this.products = newProducts.length < 1 ? this.products2 : newProducts;
   }
 
   public getProducts(category_id): any {
-    this.ourCategory = category_id;
-    this.productsService.getProductsFromOneCategory(category_id).subscribe(products =>
-      this.products = products,
+    this.productsService.getProductsFromOneCategory(category_id).subscribe(products => {
+      this.products = products;
+      this.products2 = products;
+    },
       err => {
         console.log("Error: " + err.message);
       });

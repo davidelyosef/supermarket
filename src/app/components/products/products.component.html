@@ -17,17 +17,16 @@
         <!-- Display this if I'm a regular user -->
         <div *ngIf="!isAdmin">
             <div>
-                <input (change)="onSearch()" type="text"  placeholder="Search Here..." [(ngModel)]="searchInput">
+                <input (change)="onSearch()" type="text"  placeholder="Search in category..." [(ngModel)]="searchInput">
                 <button ngClass="searchBtn">
                     <i class="glyphicon glyphicon-search"></i>&nbsp;
                 </button><br />
             </div>
 
-            <div ngClass="categoryProducts">
-                <app-category-products 
-                    *ngFor="let p of products" [product]="p" [user]="connectedUser">
-                </app-category-products>
-            </div>
+            <!-- the products -->
+            <app-category-products 
+                *ngFor="let p of products" [product]="p" [user]="connectedUser">
+            </app-category-products>
         </div>
 
         <!-- Display this if I'm the admin -->

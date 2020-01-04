@@ -30,8 +30,8 @@ export class ProductsService {
     return this.httpClient.post("http://localhost:8080/upload-image", image);
   }
 
-  public sendCategory(category): Observable<any> {
-    return this.httpClient.post("http://localhost:8080/get-category", category);
+  public patchImage(image): any {
+    return this.httpClient.patch("http://localhost:8080/update-image-name", image);
   }
 
   public deleteProduct(product_id): Observable<Product> {

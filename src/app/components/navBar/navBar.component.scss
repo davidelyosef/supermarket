@@ -13,6 +13,7 @@ div {
     nav {
         position: relative;
         height: 11vh;
+        min-height: 55px;
         #brand {
             div {
                 float: left;
@@ -199,7 +200,26 @@ div {
             }
         }
     }
-
+}
+@media only screen and (max-height: 375px) {
+    div {
+        nav {
+            #resize {
+                width: 80px;
+                #menu {
+                    margin-top: -90px;
+                    li {
+                        padding: 10px 0;
+                        font-size: 6px;
+                        min-height: 50px;
+                        a {
+                            font-size: 17px;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 

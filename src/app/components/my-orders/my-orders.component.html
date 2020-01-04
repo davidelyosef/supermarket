@@ -4,7 +4,7 @@
 </div>
 
 <!-- orders and regular user -->
-<div *ngIf="ordersFromUser && ordersFromUser.length > 1">
+<div *ngIf="ordersFromUser && ordersFromUser.length >= 1">
     <h2>My Orders: </h2>
     <app-order-table [orders]="ordersFromUser" [users]="users" [isAdmin]="isAdmin"></app-order-table>
 

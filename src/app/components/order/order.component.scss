@@ -10,25 +10,37 @@
     max-height: 50000px;
     padding: 10px;
     vertical-align: top;
-    height: 88vh;
-    box-sizing: border-box;
     position: relative;
 } 
-#order i {
-    display: block;
-    text-align: left;
-    width: 100%;
-    border-bottom: 1px solid gray;
-    margin-top: 15px;
+#order {
+    >i {
+        text-align: left;
+        width: 100%;
+        border-bottom: 1px solid gray;
+        margin-top: 15px; 
+        display: block;
+    }
+    .btn-danger {
+        position: absolute;
+        left: 5px;
+        top: 5px;
+        width: auto;
+    }
+    h3 {
+        margin-top: 30px;
+        margin-bottom: -8px;
+    }
+    div {
+        i {
+            border-bottom: 1px solid gray;
+            display: block;
+            text-align: left;
+        }
+    }
 }
 
 #selectedProducts {
     border-left: 0;
-    button {
-    position: absolute;
-    left: 5px;
-    top: 5px;
-    }
 }
 .load {
     margin: auto;
@@ -44,7 +56,8 @@
         display: block;
         width: 100%;
         button {
-            position: relative;
+            position: static;
         }
+        border-left: 0;
     }
 }

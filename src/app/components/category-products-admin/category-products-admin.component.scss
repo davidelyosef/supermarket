@@ -4,7 +4,7 @@ div {
     display: inline-block;
     padding: 5px;
     width: 260px;
-    height: 300px;
+    height: 333px;
     text-align: center;
     img {
         width: 170px;
@@ -13,7 +13,21 @@ div {
     i {
         display: inline-block;
     }
-    img, input, button {
+    img, input, button, select {
         margin: 5px;
     }
+    .form-control {
+        width: 80%;
+        margin-left: 10%;
+    }
+    .btn-success::-webkit-file-upload-button {
+        display: none;
+    }
+    .btn-success {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        width: 40px;
+    }
+
 }

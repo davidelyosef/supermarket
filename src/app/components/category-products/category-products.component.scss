@@ -48,3 +48,22 @@ div {
         -webkit-appearance: none;
     }
 }
+
+@media only screen and (max-width: 426px) {
+    div {
+        width: 120px;
+        height: 250px;
+        vertical-align: top;
+        img {
+            height: 100px;
+        }
+        .quantity {
+            display: block;
+            button {
+               font-size: 13px; 
+               line-height: 5px;
+               letter-spacing: 0;
+            }
+        }
+    }
+}

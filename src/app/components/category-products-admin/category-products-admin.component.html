@@ -1,7 +1,14 @@
 <div>
-    <img src='http://localhost:8080/assets/products/{{product.img_name}}'/><br/>
-    <input type="text" [value]="name" [(ngModel)]="product.name"><br/>
-    <input type="number" [value]="price" [(ngModel)]="product.price" min="1"><br/>
+    <img src='http://localhost:8080/assets/products/{{product.img_name}}' /><br />
+    <input type="text" class="form-control" [value]="name" [(ngModel)]="product.name">
+    <input type="number" class="form-control" [value]="price" [(ngModel)]="product.price" min="1">
+
+    <select (change)="setCategory($event)" class="form-control">
+        <option disabled selected>Category...</option>
+        <option *ngFor="let c of categories" [value]="c._id">{{c.category}}</option>
+    </select>
+
     <button class="btn btn-primary" (click)="update()">Update</button>
     <button class="btn btn-danger" (click)="delete()">Delete</button>
+    <input type="file" accept="image/*" name="productImage" class="btn btn-success glyphicon glyphicon-picture" (change)="updateImage($event)"/>
 </div>

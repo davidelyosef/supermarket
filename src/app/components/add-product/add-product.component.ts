@@ -46,16 +46,11 @@ export class AddProductComponent implements OnInit {
   }
 
   public addProduct(): void {
-    this.categoriesService.getOneCategory(this.newProduct.category).subscribe(c => {
-      this.newProduct.img_name = this.image.name;
-      let name = c.category
-      const fd = new FormData();
-      fd.append("category", JSON.stringify(name));
-      this.productsService.sendCategory(c).subscribe(res => res, err => console.log());
-      fd.append("myImage", this.image, this.image.name);
-      fd.append("newProduct", JSON.stringify(this.newProduct));
-      this.productsService.postImage(fd).subscribe(p => p, err => console.log());
-    });
+    this.newProduct.img_name = this.image.name;
+    const fd = new FormData();
+    fd.append("myImage", this.image, this.image.name);
+    fd.append("newProduct", JSON.stringify(this.newProduct));
+    this.productsService.postImage(fd).subscribe(p => p, err => console.log());
     this.router.navigate(["/products"]);
   }
 

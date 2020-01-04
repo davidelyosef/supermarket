@@ -1,92 +1,161 @@
-<form name="form" [formGroup]="form">
-    <h3>Sign Up</h3>
+
+
+<form #form="ngForm">
+    <h2>Sign Up</h2>
 
     <div class="form-group">
-        <label for="firstName">Private Name</label>
-        <input type="text" class="form-control" formControlName="firstName" [(ngModel)]="newUser.private_name"
-            [ngClass]="{'is-invalid':form.get('firstName').touched && form.get('firstName').invalid}" required />
-        <div *ngIf="form.get('firstName').touched && form.get('firstName').invalid" class="invalid-feedback">
-            <div *ngIf="form.get('firstName').errors.required" class="alert alert-danger">First Name is required</div>
+        <input required minlength="3" maxlength="20" name="firstName" #firstName="ngModel" class="form-control"
+            id="firstName" type="text" placeholder="First name" [(ngModel)]="newUser.private_name">
+        <div class="alert alert-danger" *ngIf="firstName.touched && !firstName.valid">
+            <div *ngIf="firstName.errors.required">
+                First Name is missing
+            </div>
+            <div *ngIf="firstName.errors.minlength">
+                First name should be minimum {{firstName.errors.minlength.requiredLength}} letters
+            </div>
+            <div *ngIf="firstName.errors.maxlength">
+                First name should be maximum {{firstName.errors.maxlentgh.requiredLength}} letters
+            </div>
+
         </div>
     </div>
 
-    <div class="col">
-        <label for="lastName">Last Name</label>
-        <input type="text" class="form-control" formControlName="lastName" [(ngModel)]="newUser.last_name"
-            [ngClass]="{'is-invalid':form.get('lastName').touched && form.get('lastName').invalid}" required />
-        <div *ngIf="form.get('lastName').touched && form.get('lastName').invalid" class="invalid-feedback">
-            <div *ngIf="form.get('lastName').errors.required" class="alert alert-danger">Last Name is required</div>
-        </div>
-    </div>
-
-    <div class="col">
-        <label for="email">Email</label>
-        <input type="text" class="form-control" formControlName="email" [(ngModel)]="newUser.email"
-            [ngClass]="{'is-invalid':form.get('email').touched && form.get('email').invalid}" />
-        <div *ngIf="form.get('email').touched && form.get('email').invalid" class="invalid-feedback">
-            <div *ngIf="form.get('email').errors.required" class="alert alert-danger">Email is required</div>
-            <div *ngIf="form.get('email').errors.email" class="alert alert-danger">Email must be a valid email Address</div>
-        </div>
-    </div>
-
-    <div class="col">
-        <label for="password">Password</label>
-        <input type="password" class="form-control" formControlName="password" [(ngModel)]="newUser.password"
-            [ngClass]="{'is-invalid':form.get('password').touched && form.get('password').invalid}" />
-        <div *ngIf="form.get('password').touched && form.get('password').invalid" class="invalid-feedback">
-            <div *ngIf="form.get('password').errors.required" class="alert alert-danger">Password is required</div>
-            <div *ngIf="form.get('password').errors.minlength" class="alert alert-danger">Password must be at least 4 charecters</div>
-        </div>
-    </div>
-
-    <div class="col">
-        <label for="phone">Phone</label>
-        <input type="phone" class="form-control" formControlName="phone" [(ngModel)]="newUser.phone"
-            [ngClass]="{'is-invalid':form.get('phone').touched && form.get('phone').invalid}" />
-        <div *ngIf="form.get('phone').touched && form.get('phone').invalid" class="invalid-feedback">
-            <div *ngIf="form.get('phone').errors.required" class="alert alert-danger">phone is required</div>
-            <div *ngIf="form.get('phone').errors.minlength || form.get('phone').errors.maxlength" class="alert alert-danger">
-                phone numner length must be exacly 10 numbers</div>
-        </div>
-    </div>
-
-    <div class="col">
-        <label for="city">City</label>
-        <input type="city" class="form-control" formControlName="city" [(ngModel)]="newUser.city"
-            [ngClass]="{'is-invalid':form.get('city').touched && form.get('city').invalid}" />
-        <div *ngIf="form.get('city').touched && form.get('city').invalid" class="invalid-feedback">
-            <div *ngIf="form.get('city').errors.required" class="alert alert-danger">city is required</div>
-            <div *ngIf="form.get('city').errors.minlength" class="alert alert-danger">city must be at least 3 charecters</div>
-        </div>
-    </div>
-
-    <div class="col">
-        <label for="street">Street</label>
-        <input type="street" class="form-control" formControlName="street" [(ngModel)]="newUser.street"
-            [ngClass]="{'is-invalid':form.get('street').touched && form.get('street').invalid}" />
-        <div *ngIf="form.get('street').touched && form.get('street').invalid" class="invalid-feedback">
-            <div *ngIf="form.get('street').errors.required" class="alert alert-danger">street is required</div>
-            <div *ngIf="form.get('street').errors.minlength" class="alert alert-danger">street must be at least 3 charecters</div>
-        </div>
-    </div>
-
-    <div class="col">
-        <label for="house_number">House Number</label>
-        <input type="house_number" class="form-control" formControlName="house_number"
-            [(ngModel)]="newUser.house_number"
-            [ngClass]="{'is-invalid':form.get('house_number').touched && form.get('house_number').invalid}" />
-        <div *ngIf="form.get('house_number').touched && form.get('house_number').invalid" class="invalid-feedback">
-            <div *ngIf="form.get('house_number').errors.required" class="alert alert-danger">house number is required</div>
-            <div *ngIf="form.get('house_number').errors.minlength" class="alert alert-danger">house number must be at least 3 charecters</div>
-        </div>
-    </div><br />
 
     <div class="form-group">
-        <button class="btn btn-primary" [disabled]="!form.valid" (click)="addUser()">Sign Up</button>
+        <input required minlength="3" maxlength="20" name="lastName" #lastName="ngModel" class="form-control"
+            id="lastName" type="text" placeholder="Last name" [(ngModel)]="newUser.last_name">
+        <div class="alert alert-danger" *ngIf="lastName.touched && !lastName.valid">
+            <div *ngIf="lastName.errors.required">
+                Last Name is required
+            </div>
+            <div *ngIf="lastName.errors.minlength">
+                Last name should be minimum {{lastName.errors.minlength.requiredLength}} letters
+            </div>
+            <div *ngIf="lastName.errors.maxlength">
+                Last name should be maximum {{lastName.errors.maxlength.requiredLength}} letters
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <input required name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" #email="ngModel"
+            class="form-control" id="email" type="email" (change)="checkEmail()" placeholder="Email"
+            [(ngModel)]="newUser.email">
+        <div class="alert alert-danger" *ngIf="emailError.length > 1">
+            {{emailError}}
+        </div>
+        <div class="alert alert-danger" *ngIf="email.touched && !email.valid">
+
+            <div *ngIf="email.errors.required">
+                Email is required
+            </div>
+            <div *ngIf="email.errors.pattern">
+                Email should have this pattern: xxxx@xxxx.xxxx
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <input required minlength="3" maxlength="15" name="password" #password="ngModel" class="form-control"
+            id="password" type="password" placeholder="Choose a password" [(ngModel)]="newUser.password">
+        <div class="alert alert-danger" *ngIf="password.touched && !password.valid">
+            <div *ngIf="password.errors.required">
+                Password is required
+            </div>
+            <div *ngIf="password.errors.minlength">
+                Your password should be minimum {{password.errors.minlength.requiredLength}} letters
+            </div>
+            <div *ngIf="password.errors.maxlength">
+                Password should be maximum {{password.errors.maxlentgh.requiredLength}} letters
+            </div>
+        </div>
     </div>
 
     <div class="form-group">
-        <p>Already have an acount?</p>
-        <a routerLink="/login">Login</a>
+        <input required name="passwordConfirm" #passwordConfirmation="ngModel" class="form-control" id="passwordConfirm"
+            type="password" placeholder="Confirm your password" (change)="passwordToConfirm()"
+            [(ngModel)]="confirmPassword">
+
+        <div class="alert alert-danger" *ngIf="passwordMessage">
+            {{passwordMessage}}
+        </div>
+        <div class="alert alert-danger" *ngIf="passwordConfirmation.touched && !passwordConfirmation.valid">
+
+            <div *ngIf="passwordConfirmation.errors.required">
+                Password Confirmation is required
+            </div>
+
+        </div>
     </div>
+
+    <div class="form-group">
+        <input required name="phoneNumber" pattern="^\d{9}$" #phoneNumber="ngModel" class="form-control"
+            id="phoneNumber" type="text" placeholder="Your phone number (5xxxxxxxx)" [(ngModel)]="newUser.phone">
+        <div class="alert alert-danger" *ngIf="phoneNumber.touched && !phoneNumber.valid">
+            <div *ngIf="phoneNumber.errors.required">
+                Phone Number is required
+            </div>
+            <div *ngIf="phoneNumber.errors.pattern">
+                Phone should have this pattern: 5xxxxxxxx
+
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <input required minlength="3" maxlength="15" name="city" #city="ngModel" class="form-control" id="city"
+            type="text" placeholder="City" [(ngModel)]="newUser.city">
+        <div class="alert alert-danger" *ngIf="city.touched && !city.valid">
+            <div *ngIf="city.errors.required">
+                City is required
+            </div>
+
+            <div *ngIf="city.errors.minlength">
+                City should be minimum {{city.errors.minlength.requiredLength}} letters
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <div class="form-group">
+        <input required minlength="3" name="street" #street="ngModel" class="form-control" id="street" type="text"
+            placeholder="Street" [(ngModel)]="newUser.street">
+        <div class="alert alert-danger" *ngIf="street.touched && !street.valid">
+            <div *ngIf="street.errors.required">
+                Street is required
+            </div>
+
+            <div *ngIf="street.errors.minlength">
+                Street should be minimum {{street.errors.minlength.requiredLength}} letters
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <div class="form-group">
+        <input required name="houseNumber" #houseNumber="ngModel" class="form-control" id="houseNumber" type="number"
+            placeholder="House Number" [(ngModel)]="newUser.house_number" min="1">
+        <div class="alert alert-danger" *ngIf="houseNumber.touched && !houseNumber.valid">
+            <div *ngIf="houseNumber.errors.required">
+                House Number is required
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+    <button [disabled]="form.form.invalid || emailError || passwordMessage" type="button" (click)="addUser()"
+        class="btn btn-info">Sign Up</button>
+    <button type="button" (click)="backButton()" class="btn btn-danger">Back to login</button>
 </form>
