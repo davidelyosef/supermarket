@@ -23,7 +23,7 @@ server.use("/api", cartController);
 server.use("/api/orders", orderController);
 server.use(express.static(__dirname));
 // add recently
-server.use(express.static(__dirname + '/dist/angularProject'));
+server.use(express.static(__dirname + '/dist'));
 
 let upload = multer({ dest: __dirname + `\\assets\\products` });
 // upload the image and the new product
@@ -79,7 +79,7 @@ server.patch('/update-image-name', upload.single("myImage"), (req, res) => {
 
 // add recently
 server.all("*", (req, res) => {
-    res.status(200).sendFile(__dirname + '/dist/angularProject/index.html');
+    res.status(200).sendFile(__dirname + '/dist/index.html');
 });
 
 server.listen(process.env.PORT || 8080, () => console.log("Listening..."));
