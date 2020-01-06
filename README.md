@@ -1,5 +1,7 @@
 # AngularProject
 
+I used in: Angular, Rxjs, state managment with Redux, Bootstrap, jquery, SCSS, Regex, Node.js, mongoDB, express and multer
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.8.
 
 ## Development server
